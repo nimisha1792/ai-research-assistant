@@ -1,7 +1,9 @@
 from fastapi import FastAPI
+import asyncio
 
 app = FastAPI()
 
 @app.get("/")
-def home():
-    return {"message": "Welcome to the AI Research Assistant API!"}
+async def home():
+    await asyncio.sleep(2)
+    return {"message": "Async FastAPI Working"}
