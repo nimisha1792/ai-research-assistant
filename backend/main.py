@@ -1,10 +1,14 @@
 from fastapi import FastAPI
 import asyncio
-from pydantic import BaseModel
-from fastapi import HTTPException
+from database.database import engine, Base
+
+# Import model so SQLAlchemy knows it exists
+from models.note import Note
 from routes.notes import router as notes_router
 
 app = FastAPI()
+
+Base.metadata.create_all(bind=engine)
 app.include_router(notes_router)
 
 @app.get("/")

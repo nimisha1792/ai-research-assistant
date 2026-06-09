@@ -5,5 +5,5 @@ class Note(BaseModel):
     content: str
 
 class NoteResponse(BaseModel):
-    msg: str
+    message: str
     data: Note
