@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, DateTime
 from database.database import Base
+from datetime import datetime
 
 class Note(Base):
     __tablename__ = "notes"
@@ -18,4 +19,15 @@ class Note(Base):
     content = Column(
         String,
         nullable=False
+    )
+    created_at = Column(
+        DateTime,
+        default=datetime.utcnow
+    )
+
+    updated_at = Column(
+        DateTime,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow
+
     )

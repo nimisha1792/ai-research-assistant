@@ -7,3 +7,7 @@ class Note(BaseModel):
 class NoteResponse(BaseModel):
     message: str
     data: Note
+
+class NoteUpdate(BaseModel):
+    title: str
+    content: str

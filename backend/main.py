@@ -8,7 +8,7 @@ from routes.notes import router as notes_router
 
 app = FastAPI()
 
-Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine) #Create tables if they don't exist
 app.include_router(notes_router)
 
 @app.get("/")
